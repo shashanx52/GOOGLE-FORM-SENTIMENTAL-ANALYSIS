@@ -39,6 +39,10 @@ elif(choice=="ANALYSIS"):
         df['Sentiment']=l
         df.to_csv("results.csv",index=False)
         st.subheader("the analysis results are saved by the name of results.csv")
+        # Debug: Check if file is saved
+        st.write("results.csv created successfully")
+    except Exception as e:
+        st.error(f"An error occurred: {e}")
 elif(choice=="RESULTS"):
     df=pd.read_csv("results.csv")
     choice2=st.selectbox("Choose Visualization",("NONE","PIE CHART","HISTOGRAM","SCATTER PLOT"))
